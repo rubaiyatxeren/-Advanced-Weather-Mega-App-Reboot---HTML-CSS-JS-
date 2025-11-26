@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Weather Mega App</title>
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body
+    class="bg-gradient-to-br from-indigo-500 to-purple-700 min-h-screen p-4"
+  >
+    <div class="container mx-auto max-w-6xl">
+      <header class="flex justify-between items-center mb-8">
+        <h1 class="text-3xl font-bold text-white">Advanced Weather App</h1>
+        <div class="flex space-x-2">
+          <button
+            id="themeToggle"
+            class="bg-white bg-opacity-20 text-white p-2 rounded-lg hover:bg-opacity-30 transition-all"
+          >
+            <i class="fas fa-moon"></i>
+          </button>
+          <button
+            id="unitsToggle"
+            class="bg-white bg-opacity-20 text-white p-2 rounded-lg hover:bg-opacity-30 transition-all"
+          >
+            °C / °F
+          </button>
+        </div>
+      </header>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Left Column -->
+        <div class="lg:col-span-2 space-y-6">
+          <!-- Search and Favorites -->
+          <div class="bg-white rounded-xl shadow-lg p-4">
+            <div class="flex mb-4">
+              <input
+                type="text"
+                id="cityInput"
+                placeholder="Enter city name"
+                class="flex-1 border border-gray-300 rounded-l-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <button
+                id="searchBtn"
+                class="bg-blue-500 text-white px-6 py-3 rounded-r-lg hover:bg-blue-600 transition-colors"
+              >
+                <i class="fas fa-search"></i>
+              </button>
+              <button
+                id="locationBtn"
+                class="bg-green-500 text-white px-4 py-3 rounded-lg ml-2 hover:bg-green-600 transition-colors"
+              >
+                <i class="fas fa-location-arrow"></i>
+              </button>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold">Favorite Locations</h3>
+              <button
+                id="addFavoriteBtn"
+                class="text-blue-500 hover:text-blue-700"
+              >
+                <i class="fas fa-plus"></i> Add Current
+              </button>
+            </div>
+            <div id="favorites" class="flex flex-wrap gap-2 mt-2">
+              <!-- Favorites will be loaded here -->
+            </div>
+          </div>
+
+          <!-- Current Weather -->
+          <div class="bg-white rounded-xl shadow-lg p-6">
+            <div id="currentWeather" class="text-center">
+              <div class="text-gray-500">
+                Search for a city or use your location
+              </div>
+            </div>
+          </div>
+
+          <!-- Forecast -->
+          <div class="bg-white rounded-xl shadow-lg p-6">
+            <h2 class="text-xl font-semibold mb-4">5-Day Forecast</h2>
+            <div
+              id="forecastWeather"
+              class="grid grid-cols-1 md:grid-cols-5 gap-4"
+            >
+              <div class="text-gray-500 text-center">
+                Forecast will appear here
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="space-y-6">
+          <!-- Weather Map -->
+          <div class="bg-white rounded-xl shadow-lg p-4">
+            <h2 class="text-xl font-semibold mb-4">Weather Map</h2>
+            <div
+              id="weatherMap"
+              class="h-64 bg-gray-100 rounded-lg flex items-center justify-center"
+            >
+              <div class="text-gray-500 text-center">
+                <i class="fas fa-map text-4xl mb-2"></i>
+                <div>Interactive map would appear here</div>
+                <div class="text-sm">
+                  (Requires additional map library integration)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hourly Forecast -->
+          <div class="bg-white rounded-xl shadow-lg p-4">
+            <h2 class="text-xl font-semibold mb-4">24-Hour Forecast</h2>
+            <div class="h-64">
+              <canvas id="hourlyChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Air Quality -->
+          <div class="bg-white rounded-xl shadow-lg p-4">
+            <h2 class="text-xl font-semibold mb-4">Air Quality</h2>
+            <div id="airQuality" class="text-center text-gray-500">
+              Air quality data will appear here
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
